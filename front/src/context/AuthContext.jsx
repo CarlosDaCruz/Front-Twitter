@@ -48,10 +48,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    Cookies.remove("token");
-    isAuthenticated(false);
-    setUser(null);
-  }
+    try {
+      Cookies.remove(`token`);
+      isAuthenticated(false);
+      setUser(null);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     if (errors.length > 0) {
@@ -68,7 +72,7 @@ export const AuthProvider = ({ children }) => {
       if (!cookies.token) {
         setIsAuthenticated(false);
         setLoading(false);
-        
+
         return setUser(null);
       }
       try {
