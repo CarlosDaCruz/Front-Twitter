@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
       isAuthenticated(false);
       setUser(null);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 
