@@ -22,7 +22,7 @@ function UpdatePage() {
   }, []);
 
   const onSubmit = handleSubmit(async (data) => {
-    updateTweet(params.id, data);
+    await updateTweet(params.id, data);
     navigate("/profile");
   });
 
