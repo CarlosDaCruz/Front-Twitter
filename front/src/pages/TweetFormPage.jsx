@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
 function TweetFormPage() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const {user} = useAuth();
 
@@ -24,6 +24,8 @@ function TweetFormPage() {
     // Después de crear el tweet, volvemos a cargar todos los tweets y actualizamos el estado local
     const updatedTweets = await getAllTweets();
     setAllTweets(updatedTweets);
+
+    reset();
   });   
 
   return (
