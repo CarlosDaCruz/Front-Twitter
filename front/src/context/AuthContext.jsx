@@ -50,10 +50,10 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     try {
       Cookies.remove(`token`);
-      isAuthenticated(false);
+      setIsAuthenticated(false);
       setUser(null);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
